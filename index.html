@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Jacaré Animado</title>
+  <title>Jacaré Animado com Som</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -19,20 +19,50 @@
       height: 100%;
       max-width: 800px;
       max-height: 600px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <audio id="grunido" src="grunido.mp3" preload="auto"></audio>
+
   <model-viewer
+    id="jacare"
     src="base_basic_shaded_moviment.glb"
     autoplay
-    auto-rotate
     camera-controls
     shadow-intensity="1"
     environment-image="neutral"
     animation-name="ArmatureAction"
     exposure="1.2"
+    interaction-prompt="when-focused"
     ar>
   </model-viewer>
+
+  <script>
+    const viewer = document.getElementById('jacare');
+    const audio = document.getElementById('grunido');
+
+    // Rotacionar ao passar o mouse
+    let mouseOver = false;
+
+    viewer.addEventListener('mouseenter', () => {
+      if (!mouseOver) {
+        viewer.autoRotate = true;
+        mouseOver = true;
+      }
+    });
+
+    viewer.addEventListener('mouseleave', () => {
+      viewer.autoRotate = false;
+      mouseOver = false;
+    });
+
+    // Tocar som ao clicar
+    viewer.addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play();
+    });
+  </script>
 </body>
 </html>
