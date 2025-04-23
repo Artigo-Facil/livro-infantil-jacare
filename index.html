@@ -3,31 +3,36 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Jacaré Animado com Som</title>
+  <title>Jacaré com Megafone</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
-      background: #c8f4ec;
+      background: #d0f5ec;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     }
+
     model-viewer {
-      width: 100%;
-      height: 100%;
       max-width: 800px;
-      max-height: 600px;
+      height: 50vh;
+      margin: 1rem;
+    }
+
+    .megafone {
       cursor: pointer;
+      max-width: 100px;
+      height: 100px;
     }
   </style>
 </head>
 <body>
-  <audio id="grunido" src="grunido.mp3" preload="auto"></audio>
 
+  <!-- Jacaré animado -->
   <model-viewer
-    id="jacare"
     src="base_basic_shaded_moviment.glb"
     autoplay
     camera-controls
@@ -35,33 +40,46 @@
     environment-image="neutral"
     animation-name="ArmatureAction"
     exposure="1.2"
-    interaction-prompt="when-focused"
+    ar>
+  </model-viewer>
+
+  <!-- Megafone 3D como botão -->
+  <model-viewer
+    id="megafone"
+    class="megafone"
+    src="base_basic_shaded_megafone.glb"
+    camera-controls
+    disable-zoom
+    interaction-prompt="none"
     ar>
   </model-viewer>
 
   <script>
-    const viewer = document.getElementById('jacare');
-    const audio = document.getElementById('grunido');
+    const megafone = document.getElementById('megafone');
+    const sons = [
+      new Audio('grunido1.mp3'),
+      new Audio('grunido2.mp3'),
+      new Audio('grunido3.mp3'),
+      new Audio('grunido4.mp3'),
+      new Audio('grunido5.mp3'),
+      new Audio('grunido6.mp3'),
+      new Audio('grunido7.mp3'),
+      new Audio('grunido8.mp3'),
+      new Audio('grunido9.mp3'),
+      new Audio('grunido10.mp3')
+    ];
 
-    // Rotacionar ao passar o mouse
-    let mouseOver = false;
+    let ultimoSom = -1;
 
-    viewer.addEventListener('mouseenter', () => {
-      if (!mouseOver) {
-        viewer.autoRotate = true;
-        mouseOver = true;
-      }
-    });
+    megafone.addEventListener('click', () => {
+      let novoSom;
+      do {
+        novoSom = Math.floor(Math.random() * sons.length);
+      } while (novoSom === ultimoSom);
 
-    viewer.addEventListener('mouseleave', () => {
-      viewer.autoRotate = false;
-      mouseOver = false;
-    });
-
-    // Tocar som ao clicar
-    viewer.addEventListener('click', () => {
-      audio.currentTime = 0;
-      audio.play();
+      ultimoSom = novoSom;
+      sons[novoSom].currentTime = 0;
+      sons[novoSom].play();
     });
   </script>
 </body>
