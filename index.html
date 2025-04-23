@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacaré Interativo - Pintura</title>
+  <style>
+    body { text-align: center; font-family: sans-serif; background: #eef; padding: 20px; }
+    svg { max-width: 100%; height: auto; border: 1px solid #ccc; margin-top: 20px; }
+    .color-button { margin: 10px; padding: 10px; cursor: pointer; }
+    .paintable:hover { opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <h1>Jacaré Interativo - Pintura</h1>
+  <div>
+    <button class="color-button" onclick="setColor('#00ff00')">Verde</button>
+    <button class="color-button" onclick="setColor('#ff0000')">Vermelho</button>
+    <button class="color-button" onclick="setColor('#0000ff')">Azul</button>
+  </div>
+
+  <svg id="jacare-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <g id="jacare">
+      <path class="paintable" id="jacare-corpo" d="M150 150 Q180 120 210 150 Q240 180 210 210 Q180 240 150 210 Q120 180 150 150"
+            fill="#A2FF00" stroke="#000" stroke-width="2"/>
+      <circle class="paintable" id="jacare-olho-esq" cx="170" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+      <circle class="paintable" id="jacare-olho-dir" cx="190" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+    </g>
+  </svg>
+
+  <script src="js/pintura.js"></script>
+</body>
+</html>
