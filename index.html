@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,12 +19,27 @@
     <button class="color-button" onclick="setColor('#0000ff')">Azul</button>
   </div>
 
-  <svg id="jacare-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- SVG Inline -->
+  <svg id="jacare-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
     <g id="jacare">
-      <path class="paintable" id="jacare-corpo" d="M150 150 Q180 120 210 150 Q240 180 210 210 Q180 240 150 210 Q120 180 150 150"
-            fill="#A2FF00" stroke="#000" stroke-width="2"/>
-      <circle class="paintable" id="jacare-olho-esq" cx="170" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
-      <circle class="paintable" id="jacare-olho-dir" cx="190" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+      <path class="paintable" id="jacare-corpo" d="M100 200 Q130 170 160 200 Q190 230 160 260 Q130 290 100 260 Q70 230 100 200"
+        fill="#A2FF00" stroke="#000" stroke-width="2"/>
+      <circle class="paintable" id="jacare-olho-esq" cx="120" cy="190" r="8" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+      <circle class="paintable" id="jacare-olho-dir" cx="140" cy="190" r="8" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="sapo">
+      <circle class="paintable" id="sapo-corpo" cx="300" cy="280" r="20" fill="#77dd77" stroke="#000" stroke-width="1"/>
+      <circle class="paintable" id="sapo-olho" cx="290" cy="270" r="5" fill="#ffffff" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="agua">
+      <ellipse class="paintable" id="lago" cx="200" cy="350" rx="150" ry="30" fill="#aee" stroke="#339" stroke-width="1"/>
+    </g>
+    <g id="vegetacao">
+      <path class="paintable" id="planta1" d="M400 300 L405 270 L410 300 Z" fill="#228B22" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="fundo">
+      <path class="paintable" id="colina" d="M0 320 Q100 250 200 320 T400 320 T600 320 V400 H0 Z"
+        fill="#cfc" stroke="#090" stroke-width="1"/>
     </g>
   </svg>
 
