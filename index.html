@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Jacaré com Megafone</title>
+  <title>Jacaré com Botão de Som</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -22,10 +22,15 @@
       margin: 1rem;
     }
 
-    .megafone {
+    #sound-button {
       cursor: pointer;
-      max-width: 100px;
+      width: 100px;
       height: 100px;
+      transition: transform 0.1s ease;
+    }
+
+    #sound-button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -43,19 +48,11 @@
     ar>
   </model-viewer>
 
-  <!-- Megafone 3D como botão -->
-  <model-viewer
-    id="megafone"
-    class="megafone"
-    src="base_basic_shaded_megafone.glb"
-    camera-controls
-    disable-zoom
-    interaction-prompt="none"
-    ar>
-  </model-viewer>
+  <!-- Botão de som em imagem -->
+  <img src="button.png" alt="Botão de som" id="sound-button" />
 
   <script>
-    const megafone = document.getElementById('megafone');
+    const botaoSom = document.getElementById('sound-button');
     const sons = [
       new Audio('grunido1.mp3'),
       new Audio('grunido2.mp3'),
@@ -71,7 +68,7 @@
 
     let ultimoSom = -1;
 
-    megafone.addEventListener('click', () => {
+    botaoSom.addEventListener('click', () => {
       let novoSom;
       do {
         novoSom = Math.floor(Math.random() * sons.length);
