@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <style>
+    .paintable="true":hover { cursor: pointer; opacity: 0.8; }
+  </style>
+  <g id="jacare">
+    <path paintable="true" class="paintable="true"" id="jacare-corpo" d="M150 150 Q180 120 210 150 Q240 180 210 210 Q180 240 150 210 Q120 180 150 150"
+          fill="#A2FF00" stroke="#000" stroke-width="2"/>
+    <circle paintable="true" class="paintable="true"" id="jacare-olho-esq" cx="170" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+    <circle paintable="true" class="paintable="true"" id="jacare-olho-dir" cx="190" cy="170" r="10" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>
